@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.flightreservation.app.model.Flight">
+        <table name="flight" schema="reservation" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="id" precision="11"/>
+            </id>
+            <basic name="flightNumber">
+                <column name="flight_number" length="20"/>
+            </basic>
+            <basic name="operatingAirlines">
+                <column name="operating_airlines" length="20"/>
+            </basic>
+            <basic name="arrivalCity">
+                <column name="arrival_city" length="20"/>
+            </basic>
+            <basic name="departureCity">
+                <column name="departure_city" length="20"/>
+            </basic>
+            <basic name="dateOfDepartment">
+                <column name="date_of_department" precision="-1"/>
+            </basic>
+            <basic name="estimateDepartmentTime">
+                <column name="estimate_department_time" precision="-1"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

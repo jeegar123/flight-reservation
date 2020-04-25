@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.flightreservation.app.model.Reservation">
+        <table name="reservation" schema="reservation" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="id" precision="11"/>
+            </id>
+            <basic name="checkedIn">
+                <column name="checked_in" nullable="false" precision="11"/>
+            </basic>
+            <basic name="numberOfBags">
+                <column name="number_of_bags" nullable="false" precision="11"/>
+            </basic>
+            <basic name="passengerId">
+                <column name="passenger_id" precision="11"/>
+            </basic>
+            <basic name="flightId">
+                <column name="flight_id" nullable="false" precision="11"/>
+            </basic>
+            <basic name="created">
+                <column name="created" precision="-1"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

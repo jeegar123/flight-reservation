@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.flightreservation.app.model.Passenger">
+        <table name="passenger" schema="reservation" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="id" precision="11"/>
+            </id>
+            <basic name="firstName">
+                <column name="first_name" length="20"/>
+            </basic>
+            <basic name="lastName">
+                <column name="last_name" length="20"/>
+            </basic>
+            <basic name="email">
+                <column name="email" length="30"/>
+            </basic>
+            <basic name="phone">
+                <column name="phone" length="10"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>
