@@ -44,7 +44,9 @@ public class UserController {
     public String sayLogin(){
         return "login/login";
     }
-    
+
+
+//    check user
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String login(@ModelAttribute("email") String email, @ModelAttribute("password") String password, ModelMap modelMap) {
         try {

@@ -26,6 +26,9 @@ public class FlightController {
         return "userHome/searchFlight";
     }
 
+/*
+*   search flight from database
+* */
     @RequestMapping(value = "/searchFlight", method = RequestMethod.POST)
     public String saySearchedFlights(@RequestParam("arrivalCity") String arrivalCity, @RequestParam("departureCity") String departureCity,
                                      @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @RequestParam("dateOfDepartment") Date dateOfDepartment, ModelMap modelMap) {

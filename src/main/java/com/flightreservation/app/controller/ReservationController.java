@@ -4,6 +4,8 @@ import com.flightreservation.app.dto.RequestData;
 import com.flightreservation.app.model.Reservation;
 import com.flightreservation.app.repo.FlightRepository;
 import com.flightreservation.app.service.ReservationService;
+import com.flightreservation.app.util.EmailSender;
+import com.flightreservation.app.util.PDFGenerator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,27 +19,27 @@ public class ReservationController {
 
     private final ReservationService reservationService;
 
-
-
     public ReservationController(FlightRepository flightRepository, ReservationService reservationService) {
         this.flightRepository = flightRepository;
         this.reservationService = reservationService;
+
     }
 
+//    go to reservation page
     @RequestMapping("/reservationPage")
-    public String sayReservation(@RequestParam("id") int id, ModelMap modelMap){
-        var flight=flightRepository.findById(id);
+    public String sayReservation(@RequestParam("id") int id, ModelMap modelMap) {
+        var flight = flightRepository.findById(id);
         flight.ifPresent(value -> modelMap.addAttribute("flight", value));
         return "/userHome/reservation";
     }
 
-    @RequestMapping(value = "/completeReservation",method = RequestMethod.POST)
-    public  String  doReservation(RequestData requestData, ModelMap modelMap){
-        Reservation reservation=reservationService.completeReservation(requestData);
-        modelMap.addAttribute("msg","Reservation is successfully with Id: "+reservation.getId());
+//    complete reservation
+    @RequestMapping(value = "/completeReservation", method = RequestMethod.POST)
+    public String doReservation(RequestData requestData, ModelMap modelMap) {
+        Reservation reservation = reservationService.completeReservation(requestData);
+        modelMap.addAttribute("msg", "Reservation is successfully : ");
         return "/userHome/reservationMessage";
     }
-
 
 
 }
