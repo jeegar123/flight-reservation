@@ -1,6 +1,7 @@
 package com.flightreservation.app.controller;
 
 import com.flightreservation.app.dto.ReservationData;
+import com.flightreservation.app.dto.ReservationUpdateRequest;
 import com.flightreservation.app.model.Flight;
 import com.flightreservation.app.model.Passenger;
 import com.flightreservation.app.model.Reservation;
@@ -8,10 +9,7 @@ import com.flightreservation.app.repo.FlightRepository;
 import com.flightreservation.app.repo.PassengerRepository;
 import com.flightreservation.app.repo.ReservationRepository;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/reservation")
@@ -42,5 +40,15 @@ public class ReservationRestController {
 
         return reservationData;
     }
+
+    @PutMapping("/")
+    public Reservation getUpdateReservation(@RequestBody ReservationUpdateRequest reservationUpdateRequest) {
+        Reservation reservation = reservationRepository.findById(reservationUpdateRequest.getReservationId()).get();
+        reservation.setCheckedIn(reservationUpdateRequest.getCheckIn());
+        reservation.setNumberOfBags(reservationUpdateRequest.getNumberOfBags());
+        reservationRepository.save(reservation);
+        return reservation;
+    }
+
 
 }
