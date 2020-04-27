@@ -33,4 +33,13 @@ public class ReservationData {
     public void setFlightDetails(Flight flightDetails) {
         this.flightDetails = flightDetails;
     }
+
+    @Override
+    public String toString() {
+        return "ReservationData{" +
+                "passengerDetails=" + passengerDetails +
+                ", reservationDetails=" + reservationDetails +
+                ", flightDetails=" + flightDetails +
+                '}';
+    }
 }

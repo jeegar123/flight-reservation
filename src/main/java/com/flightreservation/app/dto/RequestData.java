@@ -48,4 +48,15 @@ public class RequestData {
     public void setFlightId(int flightId) {
         this.flightId = flightId;
     }
+
+    @Override
+    public String toString() {
+        return "RequestData{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", flightId=" + flightId +
+                '}';
+    }
 }

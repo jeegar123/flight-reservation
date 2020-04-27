@@ -91,4 +91,16 @@ public class Reservation {
     public int hashCode() {
         return Objects.hash(id, checkedIn, numberOfBags, passengerId, flightId, created);
     }
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "id=" + id +
+                ", checkedIn=" + checkedIn +
+                ", numberOfBags=" + numberOfBags +
+                ", passengerId=" + passengerId +
+                ", flightId=" + flightId +
+                ", created=" + created +
+                '}';
+    }
 }
