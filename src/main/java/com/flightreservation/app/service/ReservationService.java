@@ -10,6 +10,7 @@ import com.flightreservation.app.repo.PassengerRepository;
 import com.flightreservation.app.repo.ReservationRepository;
 import com.flightreservation.app.util.EmailSender;
 import com.flightreservation.app.util.PDFGenerator;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -23,6 +24,10 @@ public class ReservationService {
     PDFGenerator pdfGenerator;
     final
     EmailSender emailSender;
+
+    @Value("${com.pdffile.reservation}")
+    private String fileDir;
+
 
     public ReservationService(PassengerRepository passengerRepository, ReservationRepository reservationRepository, FlightRepository flightRepository, PDFGenerator pdfGenerator, EmailSender emailSender) {
         this.passengerRepository = passengerRepository;
@@ -52,7 +57,7 @@ public class ReservationService {
         reservation.setCheckedIn((byte) 0);
         reservation.setPassengerId(savedPassenger.getId());
         reservationRepository.save(reservation);
-        String filePath = "D://" + reservation.getId() + ".pdf";
+        String filePath = + reservation.getId() + ".pdf";
 
         ReservationData reservationData = new ReservationData();
         reservationData.setPassengerDetails(passenger);
